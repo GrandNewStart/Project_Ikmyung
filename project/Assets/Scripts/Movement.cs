@@ -33,6 +33,10 @@ public class Movement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
         movement.y = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
+
+        movement.Normalize();
+        movement /= 10;
+
         SetDirection(movement);
         rb.MovePosition(rb.position + movement);
     }
